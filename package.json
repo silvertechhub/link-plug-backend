@@ -8,8 +8,6 @@
     "server": "nodemon server.js --ignore client",
     "client": "cd client && npm start",
     "dev": "concurrently \"npm run client\" \"npm run start\" ",
-    "install": "cd client && npm install --legacy-peer-deps",
-    "build": "cd client && npm run build",
     "render-postbuild": "npm run install && npm run build",
     "start": "node server.js"
   },
