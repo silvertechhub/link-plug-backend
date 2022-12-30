@@ -11,7 +11,15 @@ const app = express();
 app.use(express.json()); 
 app.use(express.urlencoded());
 
-app.use(cors({origin: ["http://localhost:3000", "https://linkplug-api.onrender.com"],}));
+const corsOpts = {
+    origin: '*',
+    credentials: true,
+    methods: ['GET','POST','HEAD','PUT','PATCH','DELETE'],
+    allowedHeaders: ['Content-Type'],
+    exposedHeaders: ['Content-Type']
+};
+
+app.use(cors(corsOpts));
 
 app.use('/api/routes', appRoutes);
 app.use('/api/userRoutes', userRoutes);
