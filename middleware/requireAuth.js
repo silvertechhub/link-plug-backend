@@ -2,7 +2,15 @@ const jwt = require('jsonwebtoken')
 const auth = require('../model/users')
 
 const requireAuth = async (req, res, next) => {
+    const corsOpts = {
+        origin: '*',
+        credentials: true,
+        methods: ['GET','POST','HEAD','PUT','PATCH','DELETE'],
+        allowedHeaders: ['Content-Type'],
+        exposedHeaders: ['Content-Type']
+    };
     
+    app.use(cors(corsOpts));
     const { authorization } = req.headers
 
     if(!authorization){
